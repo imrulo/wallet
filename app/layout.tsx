@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     title: 'Acquire Wallet.charity — Premium Domain for Crypto Philanthropy',
     description: 'The definitive digital asset for crypto wallets, blockchain philanthropy, and charity fundraising platforms.',
     type: 'website',
-    url: process.env.NEXT_PUBLIC_BASE_URL || 'https://wallet-charity-landing.vercel.app',
+    url: process.env.NEXT_PUBLIC_BASE_URL || '',
     images: [
       {
         url: '/opengraph-image',
@@ -52,7 +52,9 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://wallet-charity-landing.vercel.app'),
+  ...(process.env.NEXT_PUBLIC_BASE_URL && {
+    metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL),
+  }),
 };
 
 export default function RootLayout({

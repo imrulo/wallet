@@ -54,15 +54,14 @@ git push -u origin main
 
 5. **Variables de Entorno**:
    ```
-   NEXT_PUBLIC_BASE_URL=https://wallet-charity-landing-xxxxx.vercel.app
    DOMAIN_NAME=Wallet.charity
    ```
    ⚠️ **IMPORTANTE**: 
-   - Primero deja `NEXT_PUBLIC_BASE_URL` vacía o con un placeholder
+   - **NO** agregues `NEXT_PUBLIC_BASE_URL` todavía
    - Haz el primer deploy
-   - Vercel te dará la URL (ej: `https://wallet-charity-landing-abc123.vercel.app`)
+   - Después del deploy, Vercel te dará la URL de tu proyecto
    - Ve a Settings → Environment Variables
-   - Actualiza `NEXT_PUBLIC_BASE_URL` con la URL real
+   - Agrega `NEXT_PUBLIC_BASE_URL` con la URL real que Vercel te proporcionó
    - Haz un nuevo deploy para que los OG images funcionen correctamente
 
 6. **Haz clic en "Deploy"**

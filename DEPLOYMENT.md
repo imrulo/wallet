@@ -55,9 +55,9 @@ git push -u origin main
    - Espera a que termine el proceso (2-3 minutos)
 
 6. **Post-Deployment**
-   - Una vez completado, Vercel te dará una URL tipo: `https://wallet-charity-landing-xxxxx.vercel.app`
+   - Una vez completado, Vercel te dará una URL para tu deployment
    - Ve a Settings → Environment Variables
-   - Actualiza `NEXT_PUBLIC_BASE_URL` con la URL real de tu deployment
+   - Actualiza `NEXT_PUBLIC_BASE_URL` con la URL real que Vercel te proporcionó
    - Haz un nuevo deploy para aplicar los cambios en OG images y metadata
 
 ### Opción B: Usando Vercel CLI

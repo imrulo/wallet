@@ -5,13 +5,25 @@ import { TwitterIcon } from './icons/TwitterIcon';
 import { LinkedInIcon } from './icons/LinkedInIcon';
 
 const DOMAIN_NAME = 'Wallet.charity';
-const SHARE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'https://wallet-charity-landing.vercel.app';
+
+function getShareUrl(): string {
+  if (typeof window !== 'undefined') {
+    return window.location.origin;
+  }
+  return process.env.NEXT_PUBLIC_BASE_URL || '';
+}
+
 const SHARE_TEXT = `Check out this premium domain opportunity: ${DOMAIN_NAME} — Perfect for crypto charity platforms and blockchain philanthropy!`;
 
-const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(SHARE_TEXT)}&url=${encodeURIComponent(SHARE_URL)}`;
-const linkedInUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(SHARE_URL)}`;
-
 export function SocialShare() {
+  const shareUrl = getShareUrl();
+  const twitterUrl = shareUrl
+    ? `https://twitter.com/intent/tweet?text=${encodeURIComponent(SHARE_TEXT)}&url=${encodeURIComponent(shareUrl)}`
+    : '#';
+  const linkedInUrl = shareUrl
+    ? `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`
+    : '#';
+
   return (
     <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white dark:bg-navy-900 border-y border-gray-200 dark:border-navy-700">
       <div className="max-w-4xl mx-auto">
@@ -70,7 +82,7 @@ export function SocialShare() {
               </div>
               <div className="p-4">
                 <div className="text-xs text-gray-500 dark:text-gray-400 uppercase mb-1">
-                  {SHARE_URL}
+                  {shareUrl || 'Your deployment URL'}
                 </div>
                 <h5 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">
                   Acquire {DOMAIN_NAME} — Premium Domain
