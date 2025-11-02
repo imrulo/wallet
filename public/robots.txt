@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://wallet-charity-landing.vercel.app/sitemap.xml
+
